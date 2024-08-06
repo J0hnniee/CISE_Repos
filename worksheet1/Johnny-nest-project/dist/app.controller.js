@@ -17,7 +17,7 @@ let AppController = class AppController {
         this.appService = appService;
     }
     getHello() {
-        return 'Hello World!';
+        return 'Hello ENSE701';
     }
 };
 exports.AppController = AppController;

@@ -9,13 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: worksheet2/my-react-app
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [20.x]
 
     steps:
       - name: Checkout repository

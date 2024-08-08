@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-
 import {
   Body,
   Controller,
@@ -23,7 +21,6 @@ export class BookController {
   test() {
     return this.bookService.test();
   }
-
   // Get all books
   @Get('/')
   async findAll() {
@@ -64,7 +61,7 @@ export class BookController {
     try {
       await this.bookService.create(createBookDto);
       return { message: 'Book added successfully' };
-    } catch (error) {
+    } catch {
       throw new HttpException(
         {
           status: HttpStatus.BAD_REQUEST,
@@ -85,7 +82,7 @@ export class BookController {
     try {
       await this.bookService.update(id, createBookDto);
       return { message: 'Book updated successfully' };
-    } catch (error) {
+    } catch {
       throw new HttpException(
         {
           status: HttpStatus.BAD_REQUEST,
@@ -101,8 +98,8 @@ export class BookController {
   @Delete('/:id')
   async deleteBook(@Param('id') id: string) {
     try {
-      return await this.bookService.delete(id);
-    } catch (error) {
+      return await await this.bookService.delete(id);
+    } catch {
       throw new HttpException(
         {
           status: HttpStatus.NOT_FOUND,

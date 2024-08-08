@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { Book } from './book.schema';
 import { InjectModel } from '@nestjs/mongoose';
@@ -12,18 +11,23 @@ export class BookService {
   test(): string {
     return 'book route testing';
   }
+
   async findAll(): Promise<Book[]> {
     return await this.bookModel.find().exec();
   }
+
   async findOne(id: string): Promise<Book> {
     return await this.bookModel.findById(id).exec();
   }
+
   async create(createBookDto: CreateBookDto) {
     return await this.bookModel.create(createBookDto);
   }
+
   async update(id: string, createBookDto: CreateBookDto) {
     return await this.bookModel.findByIdAndUpdate(id, createBookDto).exec();
   }
+
   async delete(id: string) {
     const deletedBook = await this.bookModel.findByIdAndDelete(id).exec();
     return deletedBook;

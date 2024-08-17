@@ -13,9 +13,13 @@ const CreateBookComponent = () => {
   };
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+    event.preventDefault();
     console.log(book);
-    fetch("http://localhost:8082/api/books", {method: 'POST', headers: {"Content-Type": "application/json"}, body: JSON.stringify(book)})
+    fetch("http://localhost:8082/api/books", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(book),
+    })
       .then((res) => {
         console.log(res);
         setBook(DefaultEmptyBook);
@@ -23,7 +27,7 @@ const CreateBookComponent = () => {
         navigate.push("/");
       })
       .catch((err) => {
-        console.log('Error from CreateBook: ' + err);
+        console.log("Error from CreateBook: " + err);
       });
   };
 
@@ -34,7 +38,7 @@ const CreateBookComponent = () => {
           <div className="col-md-8 m-auto">
             <br />
             <Link href="/" className="btn btn-outline-warning float-left">
-              Show BooK List
+              Show Book List
             </Link>
           </div>
           <div className="col-md-10 m-auto">
